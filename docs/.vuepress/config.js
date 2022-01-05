@@ -1,6 +1,6 @@
 module.exports = {
-  title: '网站标题',
-  description: '网站描述',
+  title: 'Xin.Zhao',
+  description: '一个文明健康积极向上的环境',
   // 注入到当前页面的 HTML <head> 中的标签
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加一个自定义的 favicon(网页标签的图标)
@@ -15,6 +15,7 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'guide', link: '/guide/' },
       { text: 'foo', link: '/foo/' },
+      { text: 'Vue', link: '/vue/' },
       // { text: 'External', link: 'https://google.com' },
       // {
       //   text: 'Github',
@@ -46,6 +47,16 @@ module.exports = {
             'README.md',
             'one.md',
             'test.md'
+          ]
+        }
+      ],
+      '/vue/':[
+        {
+          text: 'vue基础知识',
+          link:'',
+          children: [
+            'README.md',
+            'git本地切换远程仓库地址.md',
           ]
         }
       ],
