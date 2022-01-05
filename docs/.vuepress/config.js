@@ -15,14 +15,20 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'guide', link: '/guide/' },
       { text: 'foo', link: '/foo/' },
-      { text: 'Vue', link: '/vue/' },
-      // { text: 'External', link: 'https://google.com' },
+      { 
+        text: 'Vue', 
+        children:[
+          {text:'GitHub' ,link: '/vue/github/'},
+          {text:'Vue 2.0' ,link: '/vue/vue/'},
+        ]
+      },
+      // { text: 'External', link: 'https://google.com/' },
       // {
       //   text: 'Github',
-      //   // 这里是下拉列表展现形式。
-      //   items: [
-      //    { text: 'focus-outside', link: 'https://github.com/TaoXuSheng/focus-outside' },
-      //    { text: 'stylus-converter', link: 'https://github.com/TaoXuSheng/stylus-converter' },
+      //   // 这里是下拉列表展现形式。无论是内部链接还是外部链接都要以"/"结束
+      //   children: [
+      //    { text: 'focus-outside', link: 'https://github.com/TaoXuSheng/focus-outside/' },
+      //    { text: 'stylus-converter', link: 'https://github.com/TaoXuSheng/stylus-converter/' },
       //   ]
       //  }
     ],
@@ -57,6 +63,26 @@ module.exports = {
           children: [
             'README.md',
             'git本地切换远程仓库地址.md',
+          ],
+        }
+      ],
+      '/vue/github/':[
+        {
+          text: 'GItHub',
+          link:'',
+          children: [
+            'README.md',
+            'git本地切换远程仓库地址.md',
+          ]
+        }
+      ],
+      '/vue/vue/':[
+        {
+          text: 'GItHub',
+          link:'',
+          children: [
+            'README.md',
+            'vue知识.md',
           ]
         }
       ],
