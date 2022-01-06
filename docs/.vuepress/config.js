@@ -15,6 +15,7 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'guide', link: '/guide/' },
       { text: 'foo', link: '/foo/' },
+      { text: 'JavaScript', link: '/javascript/' },
       { 
         text: 'Vue', 
         children:[
@@ -22,6 +23,28 @@ module.exports = {
           {text:'Vue 2.0' ,link: '/vue/vue/'},
         ]
       },
+      {
+        text: '其它参考',
+        children:[
+            {text: 'API', link: 'https://cn.bing.com/'},
+            {
+                text: '学习视频',
+                children: [
+                    {text: '慕客', link: 'https://cn.bing.com/'},
+                    {text: 'B 站', link: 'https://cn.bing.com/'}
+                ]
+            },
+            {
+                text: '开源项目',
+                children: [
+                    {text: '项目 01', link: 'https://cn.bing.com/'},
+                    {text: '项目 02', link: 'https://cn.bing.com/'},
+                    {text: '项目 03', link: 'https://cn.bing.com/'},
+                    {text: '项目 04', link: 'https://cn.bing.com/'}
+                ]
+            }                   
+        ]
+    }
       // { text: 'External', link: 'https://google.com/' },
       // {
       //   text: 'Github',
@@ -66,26 +89,36 @@ module.exports = {
           ],
         }
       ],
-      '/vue/github/':[
+      '/javascript/':[
         {
-          text: 'GItHub',
+          text: 'JavaScript',
           link:'',
           children: [
             'README.md',
-            'git本地切换远程仓库地址.md',
-          ]
+            'javascript.md',
+          ],
         }
       ],
-      '/vue/vue/':[
-        {
-          text: 'GItHub',
-          link:'',
-          children: [
-            'README.md',
-            'vue知识.md',
-          ]
-        }
-      ],
+      // '/vue/github/':[
+      //   {
+      //     text: 'GItHub',
+      //     link:'',
+      //     children: [
+      //       'README.md',
+      //       'git本地切换远程仓库地址.md',
+      //     ]
+      //   }
+      // ],
+      // '/vue/vue/':[
+      //   {
+      //     text: 'GItHub',
+      //     link:'',
+      //     children: [
+      //       'README.md',
+      //       'vue知识.md',
+      //     ]
+      //   }
+      // ],
     },
     displayAllHeaders: true, // 默认值：false
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
