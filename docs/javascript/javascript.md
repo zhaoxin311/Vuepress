@@ -90,3 +90,5 @@ const strAsArr = [...str];
 console.log(strAsArr);
 ```
 输出：['T', 'e', 's', 't']
+
+## 10. 可选运算符
