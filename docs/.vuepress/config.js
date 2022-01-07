@@ -16,6 +16,7 @@ module.exports = {
       { text: 'guide', link: '/guide/' },
       { text: 'foo', link: '/foo/' },
       { text: 'JavaScript', link: '/javascript/' },
+      { text: 'CSS', link: '/css/' },
       { 
         text: 'Vue', 
         children:[
@@ -96,6 +97,16 @@ module.exports = {
           children: [
             'README.md',
             'javascript.md',
+          ],
+        }
+      ],
+      '/css/':[
+        {
+          text: 'CSS',
+          link:'',
+          children: [
+            'README.md',
+            'css.md',
           ],
         }
       ],
