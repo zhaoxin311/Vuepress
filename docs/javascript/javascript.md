@@ -92,3 +92,45 @@ console.log(strAsArr);
 输出：['T', 'e', 's', 't']
 
 ## 10. 可选运算符
+可选的链接运算符(?.)允许读取位于链接对象链深处的属性的值，而不必明确验证连中的每个引用是否有效。
+
+假设 你有一个data对象，并且想要安全的访问data.test.value。首先，要检查：
+
+* data 是否被定义
+* data.test 是否被定义
+
+在data.test.value，你可以调用之前，因为，你显然无法读取undefined属性。
+```javascript
+const data = {test:{value:1}}
+if(data && data.test){
+  console.log(data.test.value);
+}
+```
+输出：1
+
+使用可选链接的方法，编写如上代码：
+```javascript
+const value = data?.test?.value;
+console.log(value)
+```
+输出：1
+
+你还可以安全地尝试访问不存在的属性，而不会出现问题：
+```javascript
+console.log(data?.this?.does?.not?.exist?.for?.sure)
+```
+输出：undefined
+
+## 11. 提高JSON的可读性
+JSON.stringify() JSON.stringify(value[, replacer [, space]]) 方法将一个 JavaScript 对象或值转换为 JSON 字符串，如果指定了一个 replacer 函数，则可以选择性地替换值，或者指定的 replacer 是数组，则可选择性地仅包含数组指定的属性。
+```javascript
+const readableJSON = JSON.stringify({ a: 'A', b: 'B' }, null, '\t');
+console.log(readableJSON);
+```
+输出：
+```javascript
+{
+      "a": "A",
+      "b": "B"
+}
+```
