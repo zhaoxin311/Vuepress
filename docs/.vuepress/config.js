@@ -14,7 +14,7 @@ module.exports = {
     navbar: [
       { text: 'Home', link: '/' },
       { text: 'guide', link: '/guide/' },
-      { text: 'foo', link: '/foo/' },
+      { text: 'GIt', link: '/git/' },
       { text: 'JavaScript', link: '/javascript/' },
       { text: 'CSS', link: '/css/' },
       { 
@@ -70,13 +70,13 @@ module.exports = {
         }
         
       ],
-      '/foo/':[
+      '/git/':[
         {
-          text: 'CSS 笔记阿',
+          text: 'Git 常用命令',
           children: [
             'README.md',
-            'one.md',
-            'test.md'
+            'git常用命令行.md',
+            'git本地切换远程仓库地址.md',
           ]
         }
       ],
