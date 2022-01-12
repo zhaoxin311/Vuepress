@@ -97,6 +97,7 @@ module.exports = {
           children: [
             'README.md',
             'javascript.md',
+            'JS数组的奇怪用法.md',
           ],
         }
       ],

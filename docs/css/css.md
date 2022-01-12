@@ -69,3 +69,18 @@ div {
 
 ### 5. Filter: opacity
 此属性根据百分比增加图像的透明度。
+
+## 5.css一行文本超出...
+```css
+overflow: hidden;  //超出的文本隐藏
+text-overflow:ellipsis; //溢出的部分省略号表示
+white-space: nowrap; //溢出的部分不换行
+```
+
+## 6.多行文本超出显示...
+```css
+display: -webkit-box;  //将对象作为弹性盒子模型展示 自适应布局
+-webkit-box-orient: vertical; 设置弹性盒子的子元素排列方式：从上到下垂直排列元素
+-webkit-line-clamp: 3; //显示文本的行数
+overflow: hidden; //超出的文本隐藏
+```
