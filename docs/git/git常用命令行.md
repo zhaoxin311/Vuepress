@@ -65,4 +65,17 @@ tags:
 * `git push oriign master` , 推送分支，把该分支上的所有本地提交推送到远程库。
 * `git branch --set-upstream-to=origin/master` , 将当前分支与远程某分支关联。
 * `git branch -vv` , 查看分支关联情况。
-* 
+
+<h3> 标签tag管理</h3>
+
+* `git tag "tagname"` , 打一个新标签。
+* `git tag` , 查看所有标签。
+* `git tag  'tagname' '版本号'` , 打一个提交日志记录中指定版本号的标签。
+* `git show 'tagname'` , 查看指定标签信息
+* `git tag -a "tagname" -m "说明文字" "版本号"` , 创建带有说明文字的标签。
+* `git tag -d "tagname"` , 安全删除本地标签。创建的标签都只存储在本地，不会自动推送到远程。
+* `git push origin "tagname"` , 推送某个标签到远程。
+* `git push origin --tags` , 一次性推送全部尚未推送到远程的本地标签。 
+* (标签已推送远程，删除远程标签。两步完成)
+* `git tag -d "tagname"` , 现在本地删除
+* `git push origin :refs/tags/"tagname"` , 从远程删除。
