@@ -134,3 +134,11 @@ console.log(readableJSON);
       "b": "B"
 }
 ```
+## 12. 处理数组关键字
+* forEach
+* filter
+* map
+* reduce
+* find
+* some
+* every
