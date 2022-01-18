@@ -13,6 +13,12 @@ module.exports = {
     logo:'/logo.png',
     navbar: [
       { text: 'Home', link: '/' },
+      { text: '前端面试指南', 
+        children:[
+          {text:'基础篇' ,link: '/mianshi/base/'},
+          {text:'进阶篇' ,link: '/mianshi/advanced/'},
+        ]
+      },
       { text: 'guide', link: '/guide/' },
       { text: 'GIt', link: '/git/' },
       { text: 'JavaScript', link: '/javascript/' },
@@ -57,6 +63,15 @@ module.exports = {
       //  }
     ],
     sidebar:{
+      '/mianshi/':[
+        {
+          text: '前端面试指南',
+          link:'',
+          children: [
+            'README.md',
+          ],
+        }
+      ],
       '/guide/':[
         {
           text:'css 笔记',
