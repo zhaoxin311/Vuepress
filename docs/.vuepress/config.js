@@ -63,9 +63,19 @@ module.exports = {
       //  }
     ],
     sidebar:{
-      '/mianshi/':[
+      '/mianshi/base':[
         {
-          text: '前端面试指南',
+          text: '前端面试指南--基础篇',
+          link:'',
+          children: [
+            'README.md',
+            'base.md',
+          ],
+        }
+      ],
+      '/mianshi/advanced':[
+        {
+          text: '前端面试指南--进阶篇',
           link:'',
           children: [
             'README.md',
@@ -95,16 +105,16 @@ module.exports = {
           ]
         }
       ],
-      '/vue/':[
-        {
-          text: 'vue基础知识',
-          link:'',
-          children: [
-            'README.md',
-            'git本地切换远程仓库地址.md',
-          ],
-        }
-      ],
+      // '/vue/':[
+      //   {
+      //     text: 'vue基础知识',
+      //     link:'',
+      //     children: [
+      //       'README.md',
+      //       'git本地切换远程仓库地址.md',
+      //     ],
+      //   }
+      // ],
       '/javascript/':[
         {
           text: 'JavaScript',
@@ -126,26 +136,26 @@ module.exports = {
           ],
         }
       ],
-      // '/vue/github/':[
-      //   {
-      //     text: 'GItHub',
-      //     link:'',
-      //     children: [
-      //       'README.md',
-      //       'git本地切换远程仓库地址.md',
-      //     ]
-      //   }
-      // ],
-      // '/vue/vue/':[
-      //   {
-      //     text: 'GItHub',
-      //     link:'',
-      //     children: [
-      //       'README.md',
-      //       'vue知识.md',
-      //     ]
-      //   }
-      // ],
+      '/vue/github/':[
+        {
+          text: 'GItHub',
+          link:'',
+          children: [
+            'README.md',
+            'git本地切换远程仓库地址.md',
+          ]
+        }
+      ],
+      '/vue/vue/':[
+        {
+          text: 'GItHub',
+          link:'',
+          children: [
+            'README.md',
+            'vue知识.md',
+          ]
+        }
+      ],
     },
     displayAllHeaders: true, // 默认值：false
     sidebarDepth: 2, // e'b将同时提取markdown中h2 和 h3 标题，显示在侧边栏上。
