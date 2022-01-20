@@ -70,6 +70,7 @@ module.exports = {
           children: [
             'README.md',
             'base.md',
+            'javascript.md'
           ],
         }
       ],
