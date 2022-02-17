@@ -14,7 +14,7 @@ tags:
 <h3>数组面试题</h3>
 <h4>1.JavaScript实现字符串反转 </h4>
 
-* a.reverse() , 数组的反转。
+* a.reverse() , 数组的反转，修改的是数组本身。
 * str.split('').reverse().join('') , 字符串的反转。
 
 <h4>2. 手写发布订阅</h4>

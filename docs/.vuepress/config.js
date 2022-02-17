@@ -124,6 +124,7 @@ module.exports = {
             'README.md',
             'javascript.md',
             'JS数组的奇怪用法.md',
+            '兼容ie8.md',
           ],
         }
       ],
