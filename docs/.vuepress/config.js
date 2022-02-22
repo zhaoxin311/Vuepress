@@ -125,6 +125,7 @@ module.exports = {
             'javascript.md',
             'JS数组的奇怪用法.md',
             '兼容ie8.md',
+            '常见的js文具库.md'
           ],
         }
       ],
