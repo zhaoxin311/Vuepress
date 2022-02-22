@@ -23,6 +23,7 @@ module.exports = {
       { text: 'GIt', link: '/git/' },
       { text: 'JavaScript', link: '/javascript/' },
       { text: 'CSS', link: '/css/' },
+      { text: 'TDesign', link: '/TDesign/' },
       { 
         text: 'Vue', 
         children:[
@@ -136,6 +137,16 @@ module.exports = {
           children: [
             'README.md',
             'css.md',
+          ],
+        }
+      ],
+      '/TDesign/':[
+        {
+          text: 'TDesign',
+          link:'',
+          children: [
+            'README.md',
+            'TDesign.md',
           ],
         }
       ],
