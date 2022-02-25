@@ -142,3 +142,56 @@ console.log(readableJSON);
 * find
 * some
 * every
+
+## 13.求和，最小值和最大值
+
+利用reduce方法快速的找到基本的数学运算。
+
+```
+const array = [5,4,3,5,42,4];
+
+array.reduce((a,b) => a+b )  //求和
+
+array.reduce((a,b) => a>b?a:b)  //最大值
+
+array.reduce((a,b) => a<b?a:b)  //最小值
+```
+
+## 14. 排序字符串，数字或对象数组
+
+内置方法sort()he reverse()来排序字符串，如果是数字或者对象数组？
+
+字符串数组排序
+
+```
+const stringArr = ["Joe", "Kapil", "Steve", "Musk"]
+
+stringArr.sort();  // 输出 ["Joe", "Kapil", "Musk", "Steve"]
+
+stringArr.reverse();  // 输出 ["Steve", "Musk", "Kapil", "Joe"]
+```
+
+数字数组排序
+
+```
+const array  = [40, 100, 1, 5, 25, 10];
+
+array.sort((a,b) => a-b); // 输出 [1, 5, 10, 25, 40, 100]
+
+array.sort((a,b) => b-a); // 输出 [100, 40, 25, 10, 5, 1]
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
