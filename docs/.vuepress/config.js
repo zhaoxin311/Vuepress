@@ -21,7 +21,12 @@ module.exports = {
       },
       { text: 'guide', link: '/guide/' },
       { text: 'GIt', link: '/git/' },
-      { text: 'JavaScript', link: '/javascript/' },
+      { text: 'javascript', 
+      children:[
+        {text:'JS基础' ,link: '/javascript/js-jichu/'},
+        {text:'JS工具' ,link: '/javascript/js-gongju/'},
+      ]
+    },
       { text: 'CSS', link: '/css/' },
       { text: 'TDesign', link: '/TDesign/' },
       { 
@@ -117,7 +122,7 @@ module.exports = {
       //     ],
       //   }
       // ],
-      '/javascript/':[
+      '/javascript/js-jichu':[
         {
           text: 'JavaScript',
           link:'',
@@ -127,6 +132,16 @@ module.exports = {
             'JS数组的奇怪用法.md',
             '兼容ie8.md',
             '常见的js文具库.md'
+          ],
+        }
+      ],
+      '/javascript/js-gongju':[
+        {
+          text:'JS工具类',
+          link:'',
+          children: [
+            'README.md',
+            'lodash.md',
           ],
         }
       ],

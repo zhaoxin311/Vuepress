@@ -1,5 +1,5 @@
 ---
-title: JavaScript
+title: 前情提要
 tags:
   - JavaScript
 ---
