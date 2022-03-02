@@ -57,7 +57,50 @@ tags:
   ```
  ### _.concat
 
+  > _.concat(array,[values])
+
+  > 创建一个新数组，将array与任何数组或者值连接在一起。
+
+  <strong>参数：</strong>
+
+  1. array(Array) : 被连接的数组。
+  2. [value] : 连接的值
+
+  <strong>返回值：</strong>
+
+  1. (Array):返回连接后的新数组
+
+  <strong>例子：</strong>
+
+  ```javascript
+    var array = [1];
+    var other = _.cancat(array, 2, [3], [[4]]);
+    console.log(other);  //[1, 2, 3, [4]]
+    console.log(array); //[1]
+  ```
+
  ### _.difference
+
+  > _.difference(array,[values])
+
+  > 通过检查将第一个数组与第二个数组中重复的值，再第一个数组中删除掉返回一个新数组。
+  > 不像`_.pullAll`,这个方法会返回一个新数组。
+
+  <strong>参数：</strong>
+
+  1. array(Array) : 要检查的数组。
+  2. [value](...Array) : 排除的值
+
+  <strong>返回值：</strong>
+
+  1. (array) : 返回一个过滤后的新数组。
+  2. 
+
+  <strong>例子：</strong>
+
+  ```javascript
+    _.difference([3,2,4,5,1],[1,4,7]) //[3,2,5]
+  ```
 
  ### _.differenceBy
 
