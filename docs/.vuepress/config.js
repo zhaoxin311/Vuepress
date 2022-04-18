@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Xin.Zhao',
-  description: '一个文明健康积极向上的环境',
+  // description: '一个文明健康积极向上的环境',
+  description: '小仙女的学习进阶笔记和心得体会',
   // 注入到当前页面的 HTML <head> 中的标签
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }], // 增加一个自定义的 favicon(网页标签的图标)
@@ -19,8 +20,13 @@ module.exports = {
           {text:'进阶篇' ,link: '/mianshi/advanced/'},
         ]
       },
-      { text: 'guide', link: '/guide/' },
-      { text: 'GIt', link: '/git/' },
+      { text: '前端技术', 
+        children:[
+          { text:'Pinia', link: '/selfStudy/pinia/' },
+          { text:'MarkDown', link: '/selfStudy/markdown/' }
+        ]
+      },
+      { text: 'Git', link: '/git/' },
       { text: 'javascript', 
       children:[
         {text:'JS基础' ,link: '/javascript/js-jichu/'},
@@ -89,26 +95,34 @@ module.exports = {
           ],
         }
       ],
-      '/guide/':[
+      '/selfStudy/pinia':[
         {
-          text:'css 笔记',
+          text:'状态管理工具Pinia',
+          link:'',
+          children: [
+            'README.md',
+            'pinia.md',
+          ],
+        }
+      ],
+      '/selfStudy/markdown':[
+        {
+          text:'MarkDown文件',
           link:'',
           children: [
             'README.md',
             'markdown.md',
-            'four.md',
-            'three.md'
           ]
         }
         
       ],
       '/git/':[
         {
-          text: 'Git 常用命令',
+          text: 'Git 使用教程',
           children: [
             'README.md',
             'git常用命令行.md',
-            'git本地切换远程仓库地址.md',
+            'git常用场景.md',
           ]
         }
       ],
