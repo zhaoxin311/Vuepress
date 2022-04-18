@@ -1,24 +1,212 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        #login
+        {
+            display:none;
+            border:1em solid purple;
+            height:30%;
+            width:50%;
+            position:absolute;/*让节点脱离文档流,我的理解就是,从页面上浮出来,不再按照文档其它内容布局*/
+            top:24%;/*节点脱离了文档流,如果设置位置需要用top和left,right,bottom定位*/
+            left:24%;
+            z-index:2;/*个人理解为层级关系,由于这个节点要在顶部显示,所以这个值比其余节点的都大*/
+            background: white;
+        }
+        #over
+        {
+            width: 100%;
+            height: 100%;
+            opacity:0.8;/*设置背景色透明度,1为完全不透明,IE需要使用filter:alpha(opacity=80);*/
+            filter:alpha(opacity=80);
+            display: none;
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:1;
+            background: silver;
+        }
+    </style>
 </head>
 <body>
-  <div>
-    <p>
-      莎士比亚的《哈姆雷特》有一句著名的台词：
-      <q cite="https://quote.example.com">活着还是死亡，这是一个问题。</q>
-    </p>
-    <blockquote cite="https://quote.example.com">
-      <p>天才就是 1% 的天赋和99%的汗水。</p>
-    </blockquote>
-    <cite>-- 爱迪生</cite>
-    <blockquote cite="https://quote.example.com">
-      <p>天才就是 1% 的天赋和99%的汗水。</p>
-    </blockquote>
-  </div>
+  <div id='desc'><b>test1:</b>test2</div>
+  <canvas id='canvas'></canvas>
+  <!-- <a href="javascript:show()">弹出</a> -->
+<div id="login">
+    <a href="javascript:hide()">关闭</a>
+    <div>这里是关闭弹窗的内容</div>
+</div>
+<div id="over"></div>
 </body>
+<script>
+  window.onload = init();
+  function init() {
+    canvas = document.getElementById('canvas');
+    context = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    mouse = { x: 0, y: 0 };
+    colors = [
+      '#af0', '#7CD14E', '#1CDCFF', '#FFFF00', '#FF0000', '#aee137', '#bef202', '#00b2ff', '#7fff24', '#13cd4b', '#c0fa38', '#f0a', '#a0f', '#0af', '#000000'];
+
+    canvas.addEventListener('mousemove', MouseMove, false);
+    canvas.addEventListener('mousedown', MouseDown, false);
+    canvas.addEventListener('mouseup', MouseUp, false);
+    window.addEventListener('resize', canvasResize, false);
+    dotsHolder = []; // 事件绑定(这里有一个要注意的，我这里用了bind方法，是为了将“mousedownEvent”方法内的this指向切换到Canvas)
+        this.canvas.addEventListener('click', this.mousedownEvent.bind(this))   // 点击事件
+    mouseMove = false;
+    mouseDown = false;
+    for (i = 0; i < 100; i++) {
+      dotsHolder.push(new dots());
+    }
+    /*REQUEST ANIMATION FRAME*/
+    (function () {
+      var lastTime = 0;
+      var vendors = ['ms', 'moz', 'webkit', 'o'];
+      for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
+          || window[vendors[x] + 'CancelRequestAnimationFrame'];
+      }
+      if (window.requestAnimationFrame)
+        window.requestAnimationFrame = function (callback, element) {
+          var currTime = new Date().getTime();
+          var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+          // console.log("timetoCall : " + timeToCall);
+          id = window.setTimeout(function () { callback(currTime + timeToCall); },
+            timeToCall);
+          // console.log("id: " + id);
+          lastTime = currTime + timeToCall;
+          // console.log("last time: " + lastTime);
+          //return id;
+        };
+      if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function (id) {
+          clearTimeout(id);
+        };
+    }());
+  }
+  function canvasResize(event) {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    cancelAnimationFrame(animate);
+  }
+  function MouseUp(event) {
+    console.log(mouseMove,'11');
+    if (!mouseMove) {
+    console.log(mouseMove,'22');
+      mouseMove = false;
+    }
+    if (mouseDown) {
+    console.log(mouseDown,'33');
+      mouseDown = false;
+    }
+  }
+  function MouseDown(event) {
+    mouseDown = true;
+  }
+  function MouseMove(event) {
+    mouse.x = event.pageX - canvas.offsetLeft;
+    mouse.y = event.pageY - canvas.offsetTop;
+    if (mouseMove) {
+      context.lineTo(mouseX, mouseY);
+      context.stroke();
+    }
+  }
+  function dots() {
+    this.xPos = Math.random() * canvas.width;
+    this.yPos = Math.random() * canvas.height;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
+    this.radius = Math.random() * 10;
+    this.vx = Math.cos(this.radius);
+    this.vy = Math.sin(this.radius);
+    this.stepSize = Math.random() / 10;
+    this.step = 0;
+    this.friction = 7;
+    this.speedX = this.vx;
+    this.speedY = this.vy;
+  }
+
+  dots.draw = function () {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    for (var c = 0; c < dotsHolder.length; c++) {
+      dot = dotsHolder[c];
+      context.beginPath();
+      distanceX = dot.xPos - mouse.x;
+      distanceY = dot.yPos - mouse.y;
+      var particleDistance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+      var particleMouse = Math.max(Math.min(75 / (particleDistance / dot.radius), 7), 1);
+      context.fillStyle = dot.color;
+      dot.xPos += dot.vx;
+      dot.yPos += dot.vy;
+      if (dot.xPos < -50) {
+        dot.xPos = canvas.width + 50;
+      }
+      if (dot.yPos < -50) {
+        dot.yPos = canvas.height + 50;
+      }
+      if (dot.xPos > canvas.width + 50) {
+        dot.xPos = -50;
+      }
+      if (dot.yPos > canvas.height + 50) {
+        dot.yPos = -50;
+      }
+      context.arc(dot.xPos, dot.yPos, (dot.radius / 2.5) * particleMouse, 0, 2 * Math.PI, false);
+      //console.log("circle x: " + dot.xPos + " y: " + dot.yPos);
+
+      context.fill();
+      if (mouseDown) {
+        var minimumDistance = 164,
+          distance = Math.sqrt((dot.xPos - mouse.x) * (dot.xPos - mouse.x) + (dot.yPos - mouse.y) * (dot.yPos - mouse.y)),
+          distanceX = dot.xPos - mouse.x,
+          distanceY = dot.yPos - mouse.y;
+        if (distance < minimumDistance) {
+          var forceFactor = minimumDistance / (distance * distance),
+            xforce = (mouse.x - dot.xPos) % distance / 7,
+            yforce = (mouse.y - dot.yPos) % distance / dot.friction,
+            forceField = forceFactor * 2 / dot.friction;
+          dot.vx -= forceField * xforce;
+          dot.vy -= forceField * yforce;
+        }
+        if (dot.vx > dot.speed) {
+          dot.vx = dot.speed / dot.friction;
+          dot.vy = dot.speed / dot.friction;
+        }
+        else if (dot.vy > dot.speed) {
+          dot.vy = dot.speed / dot.friction;
+        }
+      }
+    }
+  }
+  function animate() {
+    requestAnimationFrame(animate);
+    dots.draw();
+  }
+  animate();
+  function mousedownEvent () {                 // 点击事件
+        const x = e.offsetX
+        const y = e.offsetY
+        // 这里将点击的坐标传给所有色块，根据边界判断方法判断是否在点击在内部。是的话执行色块的事件方法。
+        this.blockList.forEach(ele => {
+            if (ele.checkBoundary(x, y)) ele.mousedownEvent(e)
+        })
+    }
+  function show()
+    {
+        var login = document.getElementById('login');
+        var over = document.getElementById('over');
+        login.style.display = "block";
+        over.style.display = "block";
+    }
+    function hide()
+    {
+        var login = document.getElementById('login');
+        var over = document.getElementById('over');
+        login.style.display = "none";
+        over.style.display = "none";
+    }
+</script>
+
 </html>
