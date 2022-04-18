@@ -5,15 +5,17 @@ tags:
 ---
 
 ## lodash 安装
+
  通过 npm 安装：
+
  ```
  npm i -g npm
  npm i --save lodash
  ```
 
- ## 数组
+## 数组
 
- ### _.chunk
+### _.chunk
 
   > _.chunk(array,[size=1])
 
@@ -35,7 +37,7 @@ tags:
     _.chunk(['a', 'b', 'c', 'd'], 3); // => [['a', 'b', 'c'], ['d']]
   ```
 
- ### _.commpact
+### _.commpact
 
   > _.commpact(array)
 
@@ -55,7 +57,8 @@ tags:
   _.commpact([0,false,1,3,'',undefined]);  // [1,3]
 
   ```
- ### _.concat
+
+### _.concat
 
   > _.concat(array,[values])
 
@@ -79,7 +82,7 @@ tags:
     console.log(array); //[1]
   ```
 
- ### _.difference
+### _.difference
 
   > _.difference(array,[values])
 
@@ -94,7 +97,8 @@ tags:
   <strong>返回值：</strong>
 
   1. (array) : 返回一个过滤后的新数组。
-  2. 
+
+  2.
 
   <strong>例子：</strong>
 
@@ -102,26 +106,23 @@ tags:
     _.difference([3,2,4,5,1],[1,4,7]) //[3,2,5]
   ```
 
- ### _.differenceBy
+### _.differenceBy
 
- ### _.differenceByWith
-
-
-
+### _.differenceByWith
 
   >
 
-  > 
+  >
 
   <strong>参数：</strong>
 
-  1. 
-  2. 
+  1.
+  2.
 
   <strong>返回值：</strong>
 
-  1. 
-  2. 
+  1.
+  2.
 
   <strong>例子：</strong>
 
